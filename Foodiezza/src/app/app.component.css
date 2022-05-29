@@ -1,0 +1,52 @@
+/* .side-image{
+    background-image: url('/assets/images/sideIm.jpg');
+    position: absolute;
+    margin-top: 9.1%;
+    right: calc(40% + 80px);
+    left: 0;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+    background-position: 100%;
+    top:0;
+    background-color: hsla(26, 5%, 70%,.2);    
+}
+ #title-name{
+    margin-right: 800px;
+} 
+.login{
+    left:calc(40% + 80px);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline;
+    text-align: center;
+    padding: .2 rem;
+    color:black;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    width: auto;
+    margin-right: 20px;
+}
+.right-content{      
+    display: inline-block;    
+    width: 150px;    
+    margin-left: 800px;
+}
+.register{
+    color:black;
+   
+}
+login:hover{
+    background-color: red;
+    color:white;
+}
+#carouselExampleSlidesOnly{
+    margin-left: 800px;
+    background-color: red;
+    color:white;
+    font-size: medium;
+    size: adjust;
+    width: 200px;
+    padding:7px;
+} */

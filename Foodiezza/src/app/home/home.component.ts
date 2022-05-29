@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FoodService } from 'src/services/food.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  foods:String[] = [];
+
+  constructor(private foodService:FoodService) { }
 
   ngOnInit(): void {
+    this.foods=this.foodService.getAll();
   }
 
 }

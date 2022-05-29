@@ -1,0 +1,48 @@
+.footer
+{
+    overflow: hidden;
+    position: sticky;
+    top: 100%;
+    background-color:rgb(241, 68, 68);
+    clear:both;
+    height: 100px;
+}
+h1 
+{
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+}
+p 
+{
+    color: #fff;
+    font-size: 15px;
+}
+a 
+{
+    color: #fff;
+    text-decoration: none;
+    padding: 0px 10px;
+    font-size: 17px;
+}
+a:hover 
+{
+    color: var(--primary-color);
+}
+i 
+{
+    padding: 0px 10px;
+}
+.col-lg-2{
+    margin-top: 24px !important;
+}
+#social-footer{
+    position: relative;
+    width: 33%;
+    float: left;
+    height: 40%;
+    margin-top: 15px !important;
+}
+#footer-content{
+    color:black;
+}
