@@ -1,6 +1,6 @@
 .header_top{
     height: 60px ;
-    background-color: #ea0d0d ;
+    background-color: #100c08 ;
     font-size: 14px;
     display: flex;
     color: white;
@@ -82,7 +82,7 @@ color:peachpuff
 }
 .log-in{
         
-        color:#ea0d0d;
+        color:#100c08;
         position: absolute;
         width: 260px;
         left: calc(100% - 260px);
@@ -90,13 +90,17 @@ color:peachpuff
         padding: 20px;
         border-style: dotted;
         border-width: 1px;
-        border-color: #ea0d0d;
+        border-color: #100c08;
          
 }
 #signin-btn{
-    color:#ea0d0d;
+    color:#100c08;
     background-color: white;
-    border-color: #ea0d0d;
+    border-color: #100c08;
     margin-top: 10px;
     margin-right: 8px;
+}
+.active-link{
+    font-weight: bold;
+    color: green;
 }

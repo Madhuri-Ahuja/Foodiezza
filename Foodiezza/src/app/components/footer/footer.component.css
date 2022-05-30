@@ -3,12 +3,13 @@
     overflow: hidden;
     position: sticky;
     top: 100%;
-    background-color:rgb(241, 68, 68);
+    background-color:#100c08;
     clear:both;
     height: 100px;
 }
 h1 
 {
+    max-width: 175 px;
     font-weight: bold;
     color: #fff;
     font-size: 30px;
@@ -44,5 +45,20 @@ i
     margin-top: 15px !important;
 }
 #footer-content{
-    color:black;
+    color:white;
 }
+#AboutUs-list{
+    list-style: none;
+    color:white;    
+}
+#AboutUs{
+    margin-left: 350px;
+}
+li  a:hover{
+    opacity: 0.9;
+    cursor: pointer;
+    color:blue;
+}
+
+
+

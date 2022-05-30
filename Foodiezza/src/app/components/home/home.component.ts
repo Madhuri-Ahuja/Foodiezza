@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodService } from 'src/services/food.service';
-import { CommonModule } from '@angular/common';
+import { Food } from 'src/app/shared/food';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  foods:Food[] = [];
+  constructor(private foodService:FoodService) {
 
-  foods:String[] = [];
-
-  constructor(private foodService:FoodService) { }
+   }
 
   ngOnInit(): void {
-    this.foods=this.foodService.getAll();
+    this.foods = this.foodService.getAll();
   }
 
 }

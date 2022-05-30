@@ -1,0 +1,33 @@
+.log-in{
+    visibility: collapse;
+    color:#ea0d0d;
+    position: absolute;
+    width: 260px;
+    /* left: calc(100% - 260px); */
+    background-color: white ;
+    padding: 20px;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #ea0d0d;
+         
+}
+#signin-btn{
+    color:#ea0d0d;
+    background-color: white;
+    border-color: #ea0d0d;
+    margin-top: 10px;
+    margin-right: 8px;
+}
+.Register-user{
+    margin-left:998px;
+    color:#ea0d0d;
+    position: absolute;
+    width: 260px;
+    left: calc(100% - 260px);
+    background-color: white ;
+    padding: 20px;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #ea0d0d;
+         
+}

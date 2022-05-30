@@ -2,7 +2,8 @@
     <nav class="header_top">
         <div class="header_menu">
             <div class="header_menu_icon">
-                <img src="/assets/images/food.jpg" id="logo-img"/>
+              <a routerLink="home" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">
+                <img src="/assets/images/food.jpg" id="logo-img"/></a>
             </div>
             
            <form class="form-inline my-2 my-lg-0">
@@ -14,18 +15,18 @@
             Category
           </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Starters</a>
-            <a class="dropdown-item" href="#">Veg</a>
-            <a class="dropdown-item" href="#">Non-Veg</a>
-            <a class="dropdown-item" href="#">Italian</a>
-            <a class="dropdown-item" href="#">Pizza and Burgers</a>            
-            <a class="dropdown-item" href="#">South-Indian</a>
+            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Starters</a>
+            <a class="dropdown-item" routerLink=""  routerLinkActive="link-active">Veg</a>
+            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Non-Veg</a>
+            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Italian</a>
+            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Pizza and Burgers</a>            
+            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">South-Indian</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Our Specials</a>
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active">Our Specials</a>
           </div>
-          <div class="header_menu_signin" id="signin-box">
-            <span class="header_menu_top_item" id="signin">Sign-in</span>
-            <span class="header_menu_bottom_item" id="register">Register</span>
+          <div class="header_menu_signin ms-auto" id="signin-box">
+            <a routerLink="log-in" class="header_menu_top_item" id="signin">Sign-in</a>
+            <a class="header_menu_bottom_item" id="register">Register</a>            
         </div>
         <div class="header-after-sign-in" id="user-home">
             <span class="header_menu_top_item" id="user-name">Hello User</span>
@@ -35,7 +36,7 @@
     </nav>
     <nav clas="header_bottom"></nav>
 </div>
-<div class="log-in"> 
+<div class="log-in" style="visibility: collapse;"> 
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
 
