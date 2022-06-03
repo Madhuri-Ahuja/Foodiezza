@@ -19,26 +19,27 @@ import { CartService } from 'src/services/cart.service';
 import { CategoryService } from 'src/services/category.service';
 import { FoodService } from 'src/services/food.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-
+import { FilterPipe } from './shared/filter.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,    
     FooterComponent,
     LogInComponent,
-    //ComponentsComponent,
     HeaderComponent,
     AboutComponent,
     ContactComponent,
     OurSpecialsComponent,
     CartComponent,
-    CheckoutComponent,    
+    CheckoutComponent,
+    FilterPipe, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
-    //NgModule
+    HttpClientModule,
+    FormsModule    //NgModule
    
   ],
   providers: [CartService,CategoryService,FoodService],

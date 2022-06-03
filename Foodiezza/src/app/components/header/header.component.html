@@ -7,23 +7,23 @@
                 <img src="/assets/images/fav.png" id="logo-img"/></a>
             </div>            
            <form class="form-inline my-2 my-lg-0">
-            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search food....." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input id="search-input" name="search" [(ngModel)]="searchItem" (keyup)="search($event)" class="form-control mr-sm-2" type="search" placeholder="Search food....." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="our-specials">Search</button>
           </form>  
         </div>
       <div class="ddcategory">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Category
           </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Starters</a>
-            <a class="dropdown-item" routerLink=""  routerLinkActive="link-active">Veg</a>
-            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Non-Veg</a>
-            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Italian</a>
-            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Pizza and Burgers</a>            
-            <a class="dropdown-item" routerLink="" routerLinkActive="link-active">South-Indian</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">             
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active" value="STARTER">Starters</a>
+            <a class="dropdown-item" routerLink="our-specials"  routerLinkActive="link-active" value="VEG">Veg</a>
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active"  value="VEG">Breads</a>
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active" value="ITALIAN">Italian</a>
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active" value="PIZZABURGER">Pizza and Burgers</a>            
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active" value="SOUTH-INDIAN">South-Indian</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active">Explore Taste</a>
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active" value="OUR-SPECIAL">Explore Taste</a>
           </div>
         </div>
           <div class="header_menu_signin ms-auto" id="signin-box">

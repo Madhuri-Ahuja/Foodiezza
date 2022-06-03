@@ -9,6 +9,7 @@ import { CartService } from 'src/services/cart.service';
 export class HeaderComponent implements OnInit {
 
   public totalItem: number = 0;
+  public searchItem:string='';
   constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
@@ -16,6 +17,10 @@ export class HeaderComponent implements OnInit {
     .subscribe(res=>{
       this.totalItem = res.length;
     })
+  }
+  search(event:any){
+    this.searchItem=(event.target as HTMLInputElement).value;
+    this.cartService.search.next(this.searchItem);
   }
 
 }

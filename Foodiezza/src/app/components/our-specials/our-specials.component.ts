@@ -12,6 +12,7 @@ import { CartService } from 'src/services/cart.service';
   styleUrls: ['./our-specials.component.css']
 })
 export class OurSpecialsComponent implements OnInit {
+searchKey:string='';
 
   specialsResult:Category[]=[];
   public foodList : any;
@@ -36,6 +37,10 @@ export class OurSpecialsComponent implements OnInit {
       //this.specialsResult=data;
     }
   });
+//searchKey
+this.cartService.search.subscribe((val:any)=>{
+  this.searchKey=val;
+})
 
 
   }

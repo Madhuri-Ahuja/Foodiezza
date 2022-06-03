@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 
    public cartItemList:any=[];
    public foodList=new BehaviorSubject<any>([]);
+   public search=new BehaviorSubject<any>("");
 
    constructor() { }
 
