@@ -7,12 +7,24 @@ import { HeaderComponent } from './components/header/header.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { OurSpecialsComponent } from './components/our-specials/our-specials.component';
+import { AboutComponent } from './components/about/about.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+
 
 const routes: Routes = [
-  {path:"home",component:HomeComponent},
+  {path:"",component:HomeComponent},
   {path:"header",component:HeaderComponent},
   {path:"log-in",component:LogInComponent},
-  {path:"our-specials",component:OurSpecialsComponent}
+  {path:"our-specials",component:OurSpecialsComponent},
+  {path:"about",component:AboutComponent},
+  {path:"cart",component:CartComponent},
+  {path:"contact",component:ContactComponent},
+  {path:"registration",component:RegistrationComponent},
+  {path:"checkout",component:CheckoutComponent}
+  
 ];
 
 @NgModule({

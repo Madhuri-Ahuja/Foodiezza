@@ -1,9 +1,10 @@
 <div class="banner">
   <div class="content">
   <h4 class="mb-3">Fresh cooked food <br/> At your Door!</h4>
-  <a routerLink=" ">Order Now <i class="bi bi-arrow-right-circle"></i></a>
+  <a routerLink="/our-specials">Order Now <i id="arrow" class="bi bi-arrow-right-circle"></i></a>
 </div>
 </div>
+
 <!-- step  -->
 <div class="container mt-5 mb-5">
   <h1 class="text-center">How to get <span class="highlight">fresh food</span></h1>
@@ -37,17 +38,20 @@
         <img id="imagebox" src="{{food.imageUrl}}" alt=""> <span>{{food.name}}</span>                
             <span class="favorite {{food.favorite?'':'not'}}" >
                 ♡ 
-            </span>
-             
-             <!-- <div class="product-item-footer">
+            </span> 
+             <div class="product-item-footer">
               <div class="origin">
-                <span *ngFor="let origin of food.origins">
-                  {{origin}}
+                <span >
+                  {{food.origins}}
                 </span>
               </div>
-            </div> -->
-        
+            </div>
         </a>
     </li>
 </ul>
+<ul>
+
+   
+
+
 

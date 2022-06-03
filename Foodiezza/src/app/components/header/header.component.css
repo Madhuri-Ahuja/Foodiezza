@@ -1,5 +1,5 @@
 .header_top{
-    height: 60px ;
+    height: 95px ;
     background-color: #100c08 ;
     font-size: 14px;
     display: flex;
@@ -19,7 +19,12 @@
     width: 100px;
     margin: 12px 20px 0px 2px;
 }
+.ddcategory{
+    margin-top: 16px;
+    margin-left: 10px;
+}
 .header_menu_signin{
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -36,8 +41,8 @@ color:peachpuff
     height: 60px;
     top: 0px;
     left: 0px;
-    margin-left: -16px;
-    margin-top: -18px;
+    margin-left: 0px;
+    margin-top: 0px;
 }
 .btn-outline-success{
     border-color: white !important;
@@ -67,12 +72,11 @@ color:peachpuff
     color:white;
 }
 #user-home{
-    visibility: collapse;
-    width: 200px;
     flex-direction: row;
     float: right;
     position: absolute;
-    right: 0;
+    right: 5px;
+    padding-top: 30px;
 }
 #user-name,#cart{
     font-size: 15px;
@@ -104,3 +108,9 @@ color:peachpuff
     font-weight: bold;
     color: green;
 }
+#cart{
+    font-size: 22px;
+    padding-top: 11px;
+    padding-left:5px;
+}
+

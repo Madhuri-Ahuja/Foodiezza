@@ -1,0 +1,21 @@
+.card{
+    border-top: 20px;
+    border-top-color: black;
+    border-color:black;
+    border-radius: 5px;
+}
+.specialsCard{
+    height: 150px;
+   
+
+}
+.ourspecialsBox{
+    border-top: 20px;
+    border-top-color: black;
+    border-color: grey;
+    border-radius: 5px;
+    border: 1px solid;
+    text-align: center;
+    width: 220px;
+    padding: 5px;
+}

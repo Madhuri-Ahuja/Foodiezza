@@ -1,16 +1,17 @@
-<div class="header">
+<!--NAVBAR-->
+<div class="header" >
     <nav class="header_top">
         <div class="header_menu">
             <div class="header_menu_icon">
-              <a routerLink="home" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}">
-                <img src="/assets/images/food.jpg" id="logo-img"/></a>
-            </div>
-            
+              <a routerLink="" routerLinkActive="link-active" >
+                <img src="/assets/images/fav.png" id="logo-img"/></a>
+            </div>            
            <form class="form-inline my-2 my-lg-0">
-            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search by food or restaurants...." aria-label="Search">
+            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search food....." aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>  
         </div>
+      <div class="ddcategory">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Category
           </a>
@@ -22,30 +23,24 @@
             <a class="dropdown-item" routerLink="" routerLinkActive="link-active">Pizza and Burgers</a>            
             <a class="dropdown-item" routerLink="" routerLinkActive="link-active">South-Indian</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active">Our Specials</a>
+            <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active">Explore Taste</a>
           </div>
+        </div>
           <div class="header_menu_signin ms-auto" id="signin-box">
-            <a routerLink="log-in" class="header_menu_top_item" id="signin">Sign-in</a>
-            <a class="header_menu_bottom_item" id="register">Register</a>            
+            <a routerLink="log-in" class="header_menu_top_item" id="signin"  >Sign-in</a>
+            <a routerLink="registration" class="header_menu_bottom_item" id="register" >Register</a>
+            <a routerLink="cart" class="header_menu_bottom_item" id="cart" ><span><i class="bi bi-bag-heart"></i>
+             <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
+          </span></a>            
         </div>
         <div class="header-after-sign-in" id="user-home">
-            <span class="header_menu_top_item" id="user-name">Hello User</span>
-            <span class="header_menu_bottom_item" id="cart">Cart</span>
+           
+            
         </div>
             
     </nav>
     <nav clas="header_bottom"></nav>
 </div>
-<div class="log-in" style="visibility: collapse;"> 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button id="signin-btn" type="submit">SignIn</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  
-</div>
+

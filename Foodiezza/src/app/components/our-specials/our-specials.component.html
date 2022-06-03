@@ -1,1 +1,14 @@
-<p>our-specials works!</p>
+<div class="container mt-4 mb-4">
+  <h1 class="text-center">Explore The  <span class="highlight">Taste</span></h1>
+  <div class="row">
+    
+    <div class="col-lg-3 mt-3" *ngFor="let dt of specialsResult">
+      <div class="ourspecialsBox">
+        <img class="specialsCard" src="{{dt.image_url}}"/>
+        <h6>{{dt.food_name}}</h6>
+        <p>{{dt.price|currency:"INR":"symbol" }}</p>
+        <button class="btn btn-primary" (click)=addtocart(dt)>Add to Bag</button>  
+      </div>
+    </div>
+  </div>
+</div>

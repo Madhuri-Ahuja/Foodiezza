@@ -57,6 +57,17 @@ export class FoodService {
       },
       {
         id:5,
+        name:'Chocolate pastry',
+        cookTime:'30-40',
+        price:250,
+        favorite:false,
+        origins:'Indian',
+        stars:4.5,
+        imageUrl:'/assets/our-specials/os1.jpg',
+        tags:['fastfood','pizza','lunch']
+      },
+      {
+        id:6,
         name:'Litti Chokha',
         cookTime:'30-40',
         price:250,
@@ -67,7 +78,7 @@ export class FoodService {
         tags:['fastfood','pizza','lunch']
       },
       {
-        id:6,
+        id:7,
         name:'Pizza',
         cookTime:'30-40',
         price:230,
@@ -77,6 +88,17 @@ export class FoodService {
         imageUrl:'/assets/food/food6.jpg',
         tags:['fastfood','pizza','lunch']
       },
+      {
+        id:8,
+        name:'Waffle',
+        cookTime:'30-40',
+        price:230,
+        favorite:false,
+        origins:'Italy',
+        stars:4.5,
+        imageUrl:'/assets/our-specials/os3.jpg',
+        tags:['fastfood','pizza','lunch']
+      }
      ]
   }
 }

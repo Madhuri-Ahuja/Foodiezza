@@ -1,18 +1,20 @@
-.footer
+#footer
 {
     overflow: hidden;
-    position: sticky;
     top: 100%;
     background-color:#100c08;
     clear:both;
-    height: 100px;
+    height: 150px;
 }
 h1 
 {
-    max-width: 175 px;
+    max-width: 100 px;
     font-weight: bold;
     color: #fff;
-    font-size: 30px;
+    font-size: 35px;
+    margin-top: 30px;
+    padding: 15px;
+    padding-right: 20px;
 }
 p 
 {
@@ -37,12 +39,16 @@ i
 .col-lg-2{
     margin-top: 24px !important;
 }
-#social-footer{
-    position: relative;
-    width: 33%;
-    float: left;
+.social-medias{    
+    width:50%;
     height: 40%;
     margin-top: 15px !important;
+    padding:30px;
+    padding-left: 120px;
+}
+.col-sm{
+    padding:5px;
+    padding-left: 50px;   
 }
 #footer-content{
     color:white;
@@ -52,13 +58,13 @@ i
     color:white;    
 }
 #AboutUs{
-    margin-left: 350px;
+    margin-left: 150px;
+}
+#AboutUs-list{
+    padding:10px;
 }
 li  a:hover{
     opacity: 0.9;
     cursor: pointer;
     color:blue;
 }
-
-
-
