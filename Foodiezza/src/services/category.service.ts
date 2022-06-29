@@ -13,7 +13,7 @@ export class CategoryService {
   constructor(private http:HttpClient) { }
 
   getData():Observable<Category[]>{
-    let url="http://localhost:3000/user";
+    let url="https://localhost:5001/api/foodinfo";
     console.log("in service");
     return this.http.get<Category[]>(url);
     

@@ -24,13 +24,14 @@ searchKey:string='';
       
          for(var i=0;i<data.length;i++){
           let item:Category={
-            food_id:data[i].food_id,
-            food_name:data[i].food_name,
+            foodId:data[i].foodId,
+            foodName:data[i].foodName,
             price:data[i].price,
             rating:data[i].rating,
             category:data[i].category,
-            cook_time:data[i].cook_time,
-            image_url:data[i].image_url
+            cookTime:data[i].cookTime,
+            imageUrl:data[i].imageUrl,
+            foodQuantity:data[i].foodQuantity
         };
           this.specialsResult.push(item);
           console.log("final array",this.specialsResult);  
@@ -42,8 +43,7 @@ this.cartService.search.subscribe((val:any)=>{
   this.searchKey=val;
 })
 
-
-  }
+ }
   addtocart(item:any){
     this.cartService.addtoCart(item);
   }

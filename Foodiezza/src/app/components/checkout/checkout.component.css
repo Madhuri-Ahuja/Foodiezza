@@ -7,7 +7,7 @@ html {
     font-family: sans-serif;
     background: linear-gradient(#1c1d1e, #1c1d1e);
   }
-  #login{
+  checkoutInternal{
     height: 500px;
     margin-bottom: 135px; 
     margin-top: 10px;
@@ -20,15 +20,15 @@ html {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 10px;
   }
   
   
-  .login-box {
-    margin-top: 130px;
-    position: absolute;
+  .checkoutBox {  
+   
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: 1250px;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: #1c1d1e;

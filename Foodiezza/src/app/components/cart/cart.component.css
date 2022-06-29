@@ -33,7 +33,7 @@ h4, h6{
 }
 .card-table{
     position: relative;
-    width: 835px;
+    width: 900px;
     margin-top: 10px;
     margin-left: 126px;
     display: flex;
@@ -62,4 +62,21 @@ h4, h6{
 }
 .empty{
     height: 350px;
+}
+.quantity{
+    width:180px !important;
+    border: 2px !important;
+    border-color: brown;
+}
+.input-group-prepend{
+   width: 50px !important;
+   border: 2px !important;
+   border-color: black !important;
+}
+.quantity h6{
+    padding: 7px;
+}
+
+.quantity>span{
+padding: 5px;
 }

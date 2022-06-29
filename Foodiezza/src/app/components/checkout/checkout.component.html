@@ -1,26 +1,150 @@
 <div id="checkout">
-    <div id="login" >
-      <div class="login-box">
-        <h2>Enter Details</h2>
-        <form>
-          <div class="user-box">
-            <input type="text" name="" required="" >
-            <label>Enter Address</label>         
-          </div>
-          <label class="payment" style="color:white; margin-right: 8px;">Payment Mode </label>
-            <select name="paymeny" id="pay">
-           <option value=" ">Choose Payment Mode</option>
-           <option value="DebitCard">Debit Card</option>
-            <option value="UPI">UPI</option>
-            <option value="cod">Cash On Delivery</option>
-         </select>          
-          <a href=" #">                       
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </a>
-          
-    
-                  
+  <div id="checkoutInternal" >   
+<div class="row">
+     <main class="col-md-8">    
+        
+       <article class="card mb-4">
+         <div class="card-body">
+           <h4 class="card-title mb-4">Review Bag</h4>
+             <div class="row">       
+                    
+                    
+                    
+             </div> <!-- row.// -->
+           </div> <!-- card-body.// -->
+                </article> <!-- card.// -->
+             
+                
+                
+                <article class="card mb-4">
+                <div class="card-body">
+                <h4 class="card-title mb-4">Delivery Address Details</h4>
+                     <form action="">          
+                        <div class="row">             
+                            <div class="form-group col-sm-6">                        
+                                <input type="text" placeholder="Your Full name" class="form-control">
+                            </div><br/> 
+                            <div class="form-group col-sm-6">                        
+                                <input type="text" placeholder="Enter Address" class="form-control">
+                            </div><br/>   
+                        <div class="form-group col-sm-6">                        
+                            <input type="text" placeholder="City" class="form-control">
+                        </div> 
+                        <div class="form-group col-sm-6">            
+                            <select name="" class="form-control" >
+                                <option value="">Tashkent</option>
+                                <option value="" selected>State</option>
+                                <option value="">Samarqand</option>
+                            </select>           
+                        </div>  
+                        <div class="form-group col-sm-6">                        
+                            <input type="text" placeholder="Zip Code" class="form-control">
+                        </div>            
+                        <div class="form-group col-sm-6">     
+                            <input type="text"  class="form-control" placeholder="Enter Mobile number">
+                        </div>
+                        <div class="form-group col-sm-6">            
+                            <input type="email" placeholder="example@gmail.com" class="form-control">
+                        </div>
+                        <label for="notes" class="notes">Any Special Instructions: </label>
+                                <textarea name="notes" id="notes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                            
+                    </div> <!-- row.// -->	
+                </form>
+                </div> <!-- card-body.// -->
+                </article> <!-- card.// -->
+                <article class="accordion" id="accordion_pay">
+                <div class="card">
+                    <header class="card-header">
+                        <img src="assets/images/misc/payment-paypal.png" class="float-right" height="24"> 
+                        <label class="form-check collapsed" data-toggle="collapse" data-target="#pay_paynet">
+                            <input class="form-check-input" name="payment-option" checked="" type="radio" value="option2">
+                            <h6 class="form-check-label"> 
+                               Cash On Delivery
+                            </h6>
+                        </label>
+                    </header>
+                    <div id="pay_paynet" class="collapse show" data-parent="#accordion_pay">
+                    <div class="card-body">
+                        <p class="text-center text-muted">Connect your PayPal account and use it to pay your bills. You'll be redirected to PayPal to add your billing information.</p>
+                        <p class="text-center">
+                            <a href="#"><img src="assets/images/misc/btn-paypal.png" height="32"></a>
+                            <br><br>
+                        </p>
+                    </div> <!-- card body .// -->
+                    </div> <!-- collapse .// -->
+                </div> <!-- card.// -->
+                <div class="card">
+                <header class="card-header">
+                    <img src="assets/images/misc/payment-card.png" class="float-right" height="24">  
+                    <label class="form-check" data-toggle="collapse" data-target="#pay_payme">
+                        <input class="form-check-input" name="payment-option" type="radio" value="option2">
+                        <h6 class="form-check-label"> Debit Card  </h6>
+                    </label>
+                </header>
+                <div id="pay_payme" class="collapse" data-parent="#accordion_pay">
+                    <div class="card-body">
+                        <p class="alert alert-success">Some information or instruction</p>
+                        <form class="form-inline">
+                            <input type="text" class="form-control mr-2" placeholder="xxxx-xxxx-xxxx-xxxx" name="">
+                            <input type="text" class="form-control mr-2" style="width: 100px" placeholder="dd/yy" name="">
+                            <input type="number" maxlength="3" class="form-control mr-2" style="width: 100px" placeholder="cvc" name="">
+                            <button class="btn btn btn-success">Pay Via UPI</button>
+                        </form>
+                    </div> <!-- card body .// -->
+                </div> <!-- collapse .// -->
+                </div> <!-- card.// -->
+                <div class="card">
+                    <header class="card-header">
+                        <img src="assets/images/misc/payment-bank.png" class="float-right" height="24">  
+                        <label class="form-check" data-toggle="collapse" data-target="#pay_card">
+                            <input class="form-check-input" name="payment-option" type="radio" value="option1">
+                            <h6 class="form-check-label"> Bank Transfer </h6>
+                        </label>
+                    </header>
+                    <div id="pay_card" class="collapse" data-parent="#accordion_pay">
+                        <div class="card-body">
+                            <p class="text-muted">Some instructions about how to pay </p>
+                            <p>
+                                Bank of America, Account number: 12345678912346 <br>
+                                IBAN: 12345, SWIFT: 987654
+                            </p>
+                        </div> <!-- card body .// -->
+                    </div> <!-- collapse .// -->
+                </div> <!-- card.// -->
+                </article> 
+                <!-- accordion end.// -->
+                
+                    </main> <!-- col.// -->
+                    <aside class="col-md-4">
+                        <div class="card shadow">
+                        <div class="card-body">
+                            <h4 class="mb-3">Overview</h4>
+                           
+                            <dl class="dlist-align">
+                              <dt class="text-muted">Payment method:</dt>
+                              <dd>Cash</dd>
+                            </dl>
+                            <hr>
+                            <dl class="dlist-align">
+                              <dt>Total:</dt>
+                              <dd class="h5">$300.50</dd>
+                            </dl>
+                            <hr>
+                            <p class="small mb-3 text-muted">By clicking you are agree with terms of condition </p>
+                            <a href=" #">                       
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              Submit
+                            </a>         
+                            
+                        </div> <!-- card-body.// -->
+                        </div> <!-- card.// -->
+                    </aside> <!-- col.// -->
+                </div> <!-- row.// -->
+               
+    </div>
+</div>
+                

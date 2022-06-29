@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/shared/category';
 import { CartService } from 'src/services/cart.service';
 
 @Component({
@@ -8,29 +9,48 @@ import { CartService } from 'src/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public foodList : any = [];
+  public foodList : Category[] = [];
   public grandTotal ! : number ;
-  public foodItem:any;
+  public foodItem:any ;
+  public foodQuantity !:number;
+  public foodTotal !:number;    
 
   constructor(private cartService:CartService) { }
-
   ngOnInit(): void {
-    this.cartService.getfood(this.foodItem).subscribe(res=>{
+    this.cartService.getfood().subscribe(res=>{
       this.foodList = res;
       this.grandTotal=this.cartService.getTotalPrice();
-      console.log("total is"+this.grandTotal);
+      console.log("total is"+ this.grandTotal);
     })
   }
-  removeItem(item:any){
-    
+  removeItem(item:any){    
     this.cartService.removeCartItem(item);
   }
-
   emptycart(){
     this.cartService.removeAllCart();
   }
   addtocart(){
-
+    
   }
-
+  increaseQuantity(item:any,foodQuantity:number){
+    for(let i=0;i<this.foodList.length;i++)
+    {
+      if(this.foodList[i].foodId === item.foodId){
+      this.foodList[i].foodQuantity =foodQuantity+1             
+    }
+      
+     }  
+     this.grandTotal=this.cartService.getTotalPrice();    
+    }
+    decreaseQuantity(item:any,foodQuantity:number){
+      for(let i=0;i<this.foodList.length;i++)
+      {
+        if(this.foodList[i].foodId === item.foodId ){
+          if(foodQuantity !=1)
+             this.foodList[i].foodQuantity = foodQuantity-1 
+      }    
+           
+      }  
+      this.grandTotal=this.cartService.getTotalPrice();  
+    } 
 }

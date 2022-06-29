@@ -9,20 +9,32 @@
                           <th>Sr.No</th>
                           <th>Product name</th>
                           <th>Product Image</th>
-                          <th>Price</th>                        
+                          <th>Price</th>  
+                          <th>Quantity</th>
+                          <th>Total</th>                   
                           <th>Action</th>
                       </tr>
                   </thead>
                   <tbody *ngFor="let fd of foodList ; let i=index">
                       <tr>
-                          <th>{{i+1}}</th>
-                          <th>{{fd.food_name}}</th>
-                          <th><img class="cartImage" src="{{fd.image_url}}"></th>
-                          <th>{{fd.price}}</th>
-                          <!-- <th>{{fd.total}}</th> -->
-                          <th>
-                              <button (click)="removeItem(fd)"class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                          </th>
+                          <td>{{i+1}}</td>
+                          <td>{{fd.foodName}}</td>
+                          <td><img class="cartImage" src="{{fd.imageUrl}}"></td>
+                          <td>{{fd.price}}</td>
+                          <td class="quantity">  
+                            <span (click)="decreaseQuantity(fd,fd.foodQuantity)" >
+                                <i class="bi bi-patch-minus-fill"></i>                        
+                            </span>   
+                            <span>{{fd.foodQuantity}}</span>                      
+                            <span (click)="increaseQuantity(fd,fd.foodQuantity)">
+                                <i class="bi bi-patch-plus-fill"></i>    
+                            </span>                       
+                                                     
+                        </td>
+                        <td>{{fd.foodQuantity*fd.price}}</td>
+                        <td>                
+                         
+                          <button (click)="removeItem(fd)"class="btn btn-danger"><i class="bi bi-trash"></i></button>                        
                       </tr>                     
                   </tbody>
                   <tr>
