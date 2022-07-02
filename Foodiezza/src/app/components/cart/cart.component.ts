@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   public foodItem:any ;
   public foodQuantity !:number;
   public foodTotal !:number;    
+  public p:any;
 
   constructor(private cartService:CartService) { }
   ngOnInit(): void {

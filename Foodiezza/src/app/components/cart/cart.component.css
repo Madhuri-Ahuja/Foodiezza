@@ -80,3 +80,9 @@ h4, h6{
 .quantity>span{
 padding: 5px;
 }
+.pagination-main{
+    margin: auto;
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 10px;
+}

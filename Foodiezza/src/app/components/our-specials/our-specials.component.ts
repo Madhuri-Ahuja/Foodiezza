@@ -39,7 +39,7 @@ public p:any;
     }
   });
 //searchKey
-this.cartService.search.subscribe((val:any)=>{
+this.cartService.search.subscribe((val:string)=>{
   this.searchKey=val;
 })
 

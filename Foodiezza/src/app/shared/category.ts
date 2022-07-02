@@ -1,5 +1,5 @@
 export interface Category {
-    foodId:number;
+    foodId ?:number;
     foodName:String;
     price:number;
     rating:number;

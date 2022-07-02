@@ -14,7 +14,7 @@ html {
   }
    
   #checkout{
-    background-image: url('\src\assets\images\loginbg2.jpg');
+    /* background-image: url('\src\assets\images\loginbg2.jpg'); */
     height: 640px;
     width: 1280px;
     background-position: center top;

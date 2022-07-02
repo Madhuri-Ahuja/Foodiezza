@@ -12,7 +12,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AddFoodItemComponent } from './components/add-food-item/add-food-item.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"contact",component:ContactComponent},
   {path:"registration",component:RegistrationComponent},
   {path:"checkout",component:CheckoutComponent},
-  {path:"admin",component:AdminComponent}
+  {path:"admin",component:AdminComponent},
+  {path:"addfooditem",component:AddFoodItemComponent}
   
 ];
 

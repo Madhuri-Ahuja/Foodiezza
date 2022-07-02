@@ -23,7 +23,8 @@ import { FilterPipe } from './shared/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AddFoodItemComponent } from './components/add-food-item/add-food-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,13 +38,15 @@ import { AdminComponent } from './admin/admin.component';
     CartComponent,
     CheckoutComponent,
     FilterPipe,
-    AdminComponent, 
+    AdminComponent,
+    AddFoodItemComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     ToastrModule.forRoot({
       timeOut:2000,

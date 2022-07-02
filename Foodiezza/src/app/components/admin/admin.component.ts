@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.service';
 import { Category } from 'src/app/shared/category';
 import { CartService } from 'src/services/cart.service';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -22,6 +23,18 @@ export class AdminComponent implements OnInit {
           console.log(data);
           this.specialsResult = data;
   })
+  this.loadData();
+  }
+  loadData(){
+    this.categoryService.getData().subscribe(specialsResult =>{
+      this.specialsResult=specialsResult;
+    });
+  }
+  delete(specialsResult : Category)
+  {
+    this.categoryService.deleteFood(<number>specialsResult.foodId);
+    this.loadData;
+    alert("Food item deletd succcessfully!");
   }
   editProduct(fd : Category)
 {
@@ -36,18 +49,15 @@ export class AdminComponent implements OnInit {
   // })
 }
 
-deleteProduct(product_id : number)
+deleteFood(category:Category)
 {
-//   this.productService.deleteProduct(product_id)
-//   .subscribe({
-//     next:(res)=>{
-//       alert("Product deleted successfully")
-//     },
-//     error:()=>{
-//       alert("error while deleting the product")
-//     }
-//   })
-// }
-// 
+  let id : number = 0;
+  if(category.foodId == undefined){
+
+  }else{
+    id=category.foodId;
+  }
+  this.categoryService.deleteFood(id);
 }
 }
+

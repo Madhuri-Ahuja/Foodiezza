@@ -15,7 +15,7 @@
                           <th>Action</th>
                       </tr>
                   </thead>
-                  <tbody *ngFor="let fd of foodList ; let i=index">
+                  <tbody *ngFor="let fd of foodList  | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
                       <tr>
                           <td>{{i+1}}</td>
                           <td>{{fd.foodName}}</td>
@@ -46,6 +46,9 @@
                 </tr>
                 </table>
             </div>
+            <div class="pagination-main">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
         </div>
     </div>
     

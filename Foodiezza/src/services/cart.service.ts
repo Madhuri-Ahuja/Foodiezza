@@ -41,7 +41,7 @@ import { Category } from 'src/app/shared/category';
   //    this.foodList.next(this.cartItemList);
   //    this.getTotalPrice();
   //    console.log(this.cartItemList);
-  //  }
+  // }
 
    getTotalPrice():number {
      let grandTotal=0;
