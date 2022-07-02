@@ -21,6 +21,9 @@ import { FoodService } from 'src/services/food.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,13 +36,21 @@ import { FormsModule } from '@angular/forms';
     OurSpecialsComponent,
     CartComponent,
     CheckoutComponent,
-    FilterPipe, 
+    FilterPipe,
+    AdminComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule    //NgModule
+    FormsModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot({
+      timeOut:2000,
+      progressAnimation: 'increasing',
+      progressBar:true,
+      positionClass:'toast-top-right'
+    })   //NgModule
    
   ],
   providers: [CartService,CategoryService,FoodService],

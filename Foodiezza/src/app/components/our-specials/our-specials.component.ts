@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Inject } from '@angular/core';
 import { CartService } from 'src/services/cart.service';
 
+
 @Inject(CategoryService)
 @Component({
   selector: 'app-our-specials',
@@ -13,7 +14,7 @@ import { CartService } from 'src/services/cart.service';
 })
 export class OurSpecialsComponent implements OnInit {
 searchKey:string='';
-
+public p:any;
   specialsResult:Category[]=[];
   public foodList : any;
   constructor(private cat:CategoryService , private cartService:CartService) { }

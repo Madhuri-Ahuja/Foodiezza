@@ -1,7 +1,7 @@
 <div class="container mt-4 mb-4">
-  <h1 class="text-center">Explore The  <span class="highlight">Taste</span></h1>
+  <h2 class="text-center">Explore The  <span class="highlight">Taste</span></h2>
   <div class="row">    
-    <div class="col-lg-3 mt-3" *ngFor="let dt of specialsResult | filter:searchKey:'category'">
+    <div class="col-lg-3 mt-3" *ngFor="let dt of specialsResult | filter:searchKey:'foodName' | paginate: { itemsPerPage: 8, currentPage: p }">
       <div class="ourspecialsBox">
         <img class="specialsCard" src="{{dt.imageUrl}}"/>
         <h6>{{dt.foodName}}</h6>
@@ -9,6 +9,9 @@
         <button class="btn btn-primary" (click)=addtocart(dt)>Add to Bag</button>  
       </div>
     </div>
+  </div>
+  <div class="pagination-main">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
 

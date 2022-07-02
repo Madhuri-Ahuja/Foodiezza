@@ -29,9 +29,9 @@ export class CartComponent implements OnInit {
   emptycart(){
     this.cartService.removeAllCart();
   }
-  addtocart(){
+  // addtocart(){
     
-  }
+  // }
   increaseQuantity(item:any,foodQuantity:number){
     for(let i=0;i<this.foodList.length;i++)
     {

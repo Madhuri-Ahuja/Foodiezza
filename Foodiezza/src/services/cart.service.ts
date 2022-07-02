@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/shared/category';
 
  @Injectable({
@@ -12,7 +13,7 @@ import { Category } from 'src/app/shared/category';
    public search=new BehaviorSubject<any>("");
   
 
-   constructor() { }
+   constructor(private toastr:ToastrService) { }
 
    getfood(){
     return this.foodList.asObservable();
@@ -26,7 +27,8 @@ import { Category } from 'src/app/shared/category';
    {
     const itemIndex = this.cartItemList.findIndex(item => item.foodId === product.foodId);
     if (itemIndex === -1) {
-    this.cartItemList.push(product);    
+    this.cartItemList.push(product);   
+    this.toastr.success(`${product.foodName}`,' added to Bag');   
     }
     else {
          this.cartItemList[itemIndex].foodQuantity = this.cartItemList[itemIndex].foodQuantity + product.foodQuantity;

@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr.css';
 body{
   margin:0px;    
 }
@@ -14,4 +15,6 @@ html{
   --primary-color: #100c08;
   --secondary-color:white;
 }
-
+.ngx-pagination {
+  align-items: center;
+}

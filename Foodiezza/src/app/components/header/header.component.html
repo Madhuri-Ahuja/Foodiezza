@@ -4,12 +4,12 @@
         <div class="header_menu">
             <div class="header_menu_icon">
               <a routerLink="" routerLinkActive="link-active" >
-                <img src="/assets/images/fav.png" id="logo-img"/></a>
+                <img src="/assets/images/fav.png" id="logo-img"/> 
+              </a>
             </div>            
            <form class="form-inline my-2 my-lg-0">
-            <input id="search-input" name="search" [(ngModel)]="searchItem" (keyup)="search($event)" class="form-control mr-sm-2" type="search" placeholder="Search food....." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="our-specials">Search</button>
-          </form>  
+            <input id="search-input" name="search"  [(ngModel)]="searchItem" (keyup)="search($event)" class="form-control mr-sm-2" type="search" placeholder="Search food....." aria-label="Search">
+            </form>  
         </div>
       <div class="ddcategory">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +26,10 @@
             <a class="dropdown-item" routerLink="our-specials" routerLinkActive="link-active" value="OUR-SPECIAL">Explore Taste</a>
           </div>
         </div>
+        <a routerLink="admin" class="Admin" id="Admin" >Admin</a>
+        
           <div class="header_menu_signin ms-auto" id="signin-box">
+            
             <a routerLink="log-in" class="header_menu_top_item" id="signin"  >Sign-in</a>
             <a routerLink="registration" class="header_menu_bottom_item" id="register" >Register</a>
             <a routerLink="cart" class="header_menu_bottom_item" id="cart" ><span><i class="bi bi-bag-heart"></i>
