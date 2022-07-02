@@ -19,10 +19,9 @@ public p:any;
   public foodList : any;
   constructor(private cat:CategoryService , private cartService:CartService) { }
   ngOnInit(): void {    
-    this.cat.getData().subscribe((data)=>{   
-         
-      console.log("in function", data);
-      
+ 
+    this.cat.getData().subscribe((data)=>{            
+      console.log("in function", data);      
          for(var i=0;i<data.length;i++){
           let item:Category={
             foodId:data[i].foodId,
