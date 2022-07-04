@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/services/category.service';
-import { Category } from 'src/app/shared/category';
+import { FoodDetailsService } from 'src/services/food-details.service';
+import { IFood } from 'src/app/shared/IFood';
 import { CartService } from 'src/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -9,14 +10,14 @@ import { CartService } from 'src/services/cart.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  specialsResult:Category[]=[];
+  specialsResult:IFood[]=[];
   public totalFood:number=0;
   public p:any;
-  constructor(private categoryService : CategoryService, private cartService:CartService) { }
+  constructor(private foodDetailsService : FoodDetailsService,private cartService:CartService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    this.categoryService.getData().subscribe((data:Category[]) =>{
-      this.cartService.getfood()
+    this.foodDetailsService.getFood().subscribe((data:IFood[]) =>{
+      this.cartService.getFood()
       .subscribe(res=>{
       this.totalFood = res.length;
     })
@@ -26,18 +27,11 @@ export class AdminComponent implements OnInit {
   this.loadData();
   }
   loadData(){
-    this.categoryService.getData().subscribe(specialsResult =>{
+    this.foodDetailsService.getFood().subscribe(specialsResult =>{
       this.specialsResult=specialsResult;
     });
   }
-  delete(specialsResult : Category)
-  {
-    this.categoryService.deleteFood(<number>specialsResult.foodId);
-    this.loadData;
-    alert("Food item deletd succcessfully!");
-  }
-  editProduct(fd : Category)
-{
+  editProduct(fd : IFood){
   // this.dialog.open(DialogComponent,{
   //   width: '30%',
   //   data: dt
@@ -49,15 +43,18 @@ export class AdminComponent implements OnInit {
   // })
 }
 
-deleteFood(category:Category)
+deleteFood(food: IFood)
 {
   let id : number = 0;
-  if(category.foodId == undefined){
+  if(food.foodId == undefined){
 
   }else{
-    id=category.foodId;
+    id=food.foodId;
   }
-  this.categoryService.deleteFood(id);
+  this.foodDetailsService.deleteFood(id);
+  this.toastr.info(`${food.foodName}`,' Deleted ');
+  this.loadData;  
+
 }
 }
 

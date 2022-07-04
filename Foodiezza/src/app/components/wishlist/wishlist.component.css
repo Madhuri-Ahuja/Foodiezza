@@ -38,7 +38,6 @@
     cursor: pointer;  
     color: rgb(178, 67, 67);  
   }
-/* .wishlist > i{
-    padding-top: 90px;
-    margin-top: 10px;    
-} */
+.container{
+    height: 550px;
+}

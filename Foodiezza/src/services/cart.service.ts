@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { Category } from 'src/app/shared/category';
+import { IFood } from 'src/app/shared/IFood';
 
  @Injectable({
    providedIn: 'root'
  })
  export class CartService {
 
-   public cartItemList:Category[]=[];   
+   public cartItemList:IFood[]=[];   
    public foodList=new BehaviorSubject<any>([]);
    public search=new BehaviorSubject<string>("");
    public category=new BehaviorSubject<any>("");   
@@ -16,42 +16,35 @@ import { Category } from 'src/app/shared/category';
 
    constructor(private toastr:ToastrService) { }
 
-   getfood(){
+   getFood(){
     return this.foodList.asObservable();
    }
 
-  setfood(product:any){
+  setFood(product:any){
      this.cartItemList.push(...product);
      this.foodList.next(product);
    }
-   addtoCart(product:any)
+   addToCart(food:any)
    {
-    const itemIndex = this.cartItemList.findIndex(item => item.foodId === product.foodId);
+    const itemIndex = this.cartItemList.findIndex(item => item.foodId === food.foodId);
     if (itemIndex === -1) {
-    this.cartItemList.push(product);   
-    this.toastr.success(`${product.foodName}`,' added to Bag');   
+    this.cartItemList.push(food);   
+    this.toastr.success(`${food.foodName}`,' added to Bag');   
     }
     else {
-         this.cartItemList[itemIndex].foodQuantity = this.cartItemList[itemIndex].foodQuantity + product.foodQuantity;
+         this.cartItemList[itemIndex].foodQuantity = this.cartItemList[itemIndex].foodQuantity + food.foodQuantity;
     }
     this.foodList.next(this.cartItemList.slice(0));
     this.getTotalPrice();
    }
-  //  addtoCart(product:any){
-  //    this.cartItemList.push(product);
-  //    this.foodList.next(this.cartItemList);
-  //    this.getTotalPrice();
-  //    console.log(this.cartItemList);
-  // }
-
-   getTotalPrice():number {
+    getTotalPrice():number {
      let grandTotal=0;
      this.cartItemList.map((a:any) =>{
       grandTotal += Number(a.price * a.foodQuantity)})  
       console.log(grandTotal);
       return grandTotal;
  }
-   removeCartItem(product:Category){     
+   removeCartItem(product:IFood){     
      this.cartItemList.map((a:any,index:any)=>{
        if(product.foodId==a.foodId){
        this.cartItemList.splice(index,1)
@@ -63,15 +56,5 @@ import { Category } from 'src/app/shared/category';
     this.cartItemList=[];
     this.foodList.next(this.cartItemList);
    }
-  //  filter(category:string)
-  // {
-  //   this.filterCategory = this.specialsResult
-  //   .filter((a : any) =>{
-  //     if(a.category == category || category==''){
-  //       return a;
-  //     }
-  //   })
-  // }
-
   
   }

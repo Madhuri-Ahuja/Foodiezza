@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogInComponent } from './components/log-in/log-in.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { OurSpecialsComponent } from './components/our-specials/our-specials.component';
 import { AboutComponent } from './components/about/about.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -14,9 +13,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AddFoodItemComponent } from './components/add-food-item/add-food-item.component';
-import { WishlistCartService } from 'src/services/wishlist-cart.service';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
-
+import { InvoiceComponent } from './components/invoice/invoice.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -30,7 +28,8 @@ const routes: Routes = [
   {path:"checkout",component:CheckoutComponent},
   {path:"admin",component:AdminComponent},
   {path:"addfooditem",component:AddFoodItemComponent},
-  {path:"wishlist",component:WishlistComponent}
+  {path:"wishlist",component:WishlistComponent},
+  {path:"invoice",component:InvoiceComponent}
   
 ];
 

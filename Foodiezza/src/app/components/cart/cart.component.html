@@ -1,40 +1,38 @@
 <div class="cart">
 <ng-container *ngIf="foodList.length !=0" >
-    <div class="container">
-        <div class="card-table">
-            <div class="card-product">
-                <table class="table table-responsive">
-                  <thead>
-                      <tr>
-                          <th>Sr.No</th>
-                          <th>Product name</th>
-                          <th>Product Image</th>
-                          <th>Price</th>  
-                          <th>Quantity</th>
-                          <th>Total</th>                   
-                          <th>Action</th>
-                      </tr>
-                  </thead>
-                  <tbody *ngFor="let fd of foodList  | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
+  <div class="container">
+     <div class="card-table">
+       <div class="card-product">
+            <table class="table table-responsive">
+               <thead>
+                <tr>
+                   <th>Sr.No</th>
+                   <th>Product name</th>
+                   <th>Product Image</th>
+                   <th>Price</th>  
+                   <th>Quantity</th>
+                    <th>Total</th>                   
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let food of foodList  | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
                       <tr>
                           <td>{{i+1}}</td>
-                          <td>{{fd.foodName}}</td>
-                          <td><img class="cartImage" src="{{fd.imageUrl}}"></td>
-                          <td>{{fd.price}}</td>
+                          <td>{{food.foodName}}</td>
+                          <td><img class="cartImage" src="{{food.imageUrl}}"></td>
+                          <td>{{food.price}}</td>
                           <td class="quantity">  
-                            <span (click)="decreaseQuantity(fd,fd.foodQuantity)" >
+                            <span (click)="decreaseQuantity(food,food.foodQuantity)" >
                                 <i class="bi bi-patch-minus-fill"></i>                        
                             </span>   
-                            <span>{{fd.foodQuantity}}</span>                      
-                            <span (click)="increaseQuantity(fd,fd.foodQuantity)">
+                            <span>{{food.foodQuantity}}</span>                      
+                            <span (click)="increaseQuantity(food,food.foodQuantity)">
                                 <i class="bi bi-patch-plus-fill"></i>    
-                            </span>                   
-                                            
-                        </td>
-                        <td>{{fd.foodQuantity*fd.price}}</td>
-                        <td>                
-                         
-                          <button (click)="removeItem(fd)"class="btn btn-danger"><i class="bi bi-trash"></i></button>                        
+                            </span>            
+                            </td>
+                        <td>{{food.foodQuantity*food.price}}</td>
+                        <td>          
+                        <button (click)="removeItem(food)"class="btn btn-danger"><i class="bi bi-trash"></i></button>                        
                       </tr>                     
                   </tbody>
                   <tr>
@@ -45,13 +43,12 @@
                     <td><strong>Total All:{{ grandTotal |currency:'INR'}}</strong></td>
                 </tr>
                 </table>
-            </div>
-            <div class="pagination-main">
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
-              </div>
+       </div>
+       <div class="pagination-main">
+           <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
-    </div>
-    
+     </div>
+  </div>    
 </ng-container>
 
 <ng-container *ngIf="foodList.length == 0">

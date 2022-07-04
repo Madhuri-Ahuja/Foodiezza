@@ -25,46 +25,23 @@
       <div class="container mt-4">  
         <div class="dashboardItem">     
         <div class="row">             
-          <div  *ngFor="let fd of specialsResult  | paginate: { itemsPerPage: 6, currentPage: p }">
+          <div  *ngFor="let food of specialsResult  | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="ourspecialsBox">
-              <img class="specialsCard" src="{{fd.imageUrl}}"/>
-                <h6>Name : {{fd.foodName}}</h6>
-              <p>Price : {{fd.price|currency:"INR":"symbol" }}</p>
-              <p>Category : {{fd.category}}</p>
-              <p><i class="bi bi-alarm"></i> : {{fd.cookTime}} minutes </p>
-              <p> Quantity : {{fd.foodQuantity}}</p>              
-              <button type="button" id="editBtn" class="btn btn-primary" (click)="editProduct(fd)">Edit</button>                 
-              <button type="button" class="btn btn-primary" (click)="deleteFood(fd)">Delete</button> 
+              <img class="specialsCard" src="{{food.imageUrl}}"/>
+                <h6>Name : {{food.foodName}}</h6>
+              <p>Price : {{food.price|currency:"INR":"symbol" }}</p>
+              <p>Category : {{food.category}}</p>
+              <p><i class="bi bi-alarm"></i> : {{food.cookTime}} minutes </p>
+              <p> Quantity : {{food.foodQuantity}}</p>              
+              <button type="button" id="editBtn" class="btn btn-primary" (click)="editProduct(food)">Edit</button>                 
+              <button type="button" class="btn btn-primary" (click)="deleteFood(food)">Delete</button> 
             </div>
           </div>
         </div>
         </div>
          <div class="pagination-main">
           <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div>
+         </div>
       </div>
-      <!-- <div class="col-md-9 col-lg-10 ml-md-auto px-0">
-              
-        
-        <main class="container-fluid">
-          <section class="row">
-            <div class="col-md-8 col-lg-8">
-            
-              <div *ngFor="let fd of specialsResult">
-               <img src="{{fd.imageUrl}}" class="product-img" />
-                <p>Name : <strong>{{fd.foodName}}</strong></p>
-                <p>Description : {{fd.category}}</p>
-                <p class="money">Price : <strong>{{fd.price | currency:'INR'}}</strong></p>
-                <p><i class="bi bi-alarm"></i> : {{fd.cookTime}} minutes </p>
-                <p> Quantity : {{fd.foodQuantity}}</p>
-                <button type="button" class="editbtn" (click)="editProduct(fd)">Edit</button>
-                <button type="button" class="deletebtn" (click)="deleteProduct(fd.foodId)">Delete</button>
-              </div>
-            </div>
-             
-          </section>
-       
-        </main>
-      </div> -->
-    </div>
   </div>
+</div>

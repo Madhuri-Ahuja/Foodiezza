@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/services/cart.service';
-import { CategoryService } from 'src/services/category.service';
-import { Category } from 'src/app/shared/category';
+import { FoodDetailsService } from 'src/services/food-details.service';
+import { IFood } from 'src/app/shared/IFood';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
 @Component({
@@ -13,14 +13,12 @@ export class HeaderComponent implements OnInit {
 
   public totalItem: number = 0;
   public searchItem:string='';
-  public category: [] = [];
-
-  
+  public category: [] = [];  
    
-  constructor(private cartService:CartService , private categoryService:CategoryService,private _router: Router) { }
+  constructor(private cartService:CartService , private foodDetailsService:FoodDetailsService,private _router: Router) { }
 
   ngOnInit(): void {
-    this.cartService.getfood()
+    this.cartService.getFood()
     .subscribe(res=>{
       this.totalItem = res.length;
     })
@@ -30,12 +28,9 @@ export class HeaderComponent implements OnInit {
     this.searchItem=(event.target as HTMLInputElement).value;
     this.cartService.search.next(this.searchItem);      
   }
-  filter(event:any){    
-  
-    this._router.navigate(['our-specials'])
-    //this.searchItem=(event.target as HTMLInputElement).value;
-    
-    this.cartService.category.next(event);      
+  filter(event:any){   
+   this._router.navigate(['our-specials'])
+   this.cartService.category.next(event);      
   }
   
   

@@ -4,7 +4,7 @@
         <form>            
             <h3>Billing Address</h3>
             <label for="fname"><i class="bi bi-person-fill"></i> Full Name</label>
-            <input [formControl]="Name" type="text" id="fname" name="firstname" placeholder="Enter Name">
+            <input [formControl]="Name" type="text" id="fname" name="firstname" placeholder="Enter Name" required>
             <label for="email"><i class="bi bi-envelope-fill"></i> Email</label>
             <input [formControl]="Email"  type="text" id="email" name="email" placeholder="Enter Valid Email ">
              <label for="adr"><i class="bi bi-house-fill"></i> Address</label>
@@ -48,8 +48,7 @@
                  </tbody>  
              </table>                  
             </div> <!-- row.// -->
-            </div> <!-- card-body.// -->
-        
+            </div> <!-- card-body.// -->      
 
 <div class="card shadow">
 <div class="card-body">
@@ -63,7 +62,7 @@
 <input type="checkbox" />
 <p class="small mb-3 text-muted">By clicking you are agree with terms of condition </p>
  <button class="btnBuyNow" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-myForm.email.$dirty && myForm.email.$invalid"(click)="paynow()">Buy Now</button>                    
+myForm.email.$dirty && myForm.email.$invalid" routerLink="/invoice" (click)="paynow()" >Buy Now</button>                    
 </div> <!-- card-body.// -->
 </div> <!-- card.// -->
 </div>

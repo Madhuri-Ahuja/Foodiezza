@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/shared/category';
+import { IFood } from 'src/app/shared/IFood';
 import { CartService } from 'src/services/cart.service';
-import { CategoryService } from 'src/services/category.service';
+import { FoodDetailsService } from 'src/services/food-details.service';
 import { WishlistCartService } from 'src/services/wishlist-cart.service';
-
-
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
@@ -12,31 +10,27 @@ import { WishlistCartService } from 'src/services/wishlist-cart.service';
 })
 export class WishlistComponent implements OnInit {
   public p:any;
-  wishlistArray:Category[]=[]; 
+  wishlistArray:IFood[]=[]; 
 
-  constructor(private wishlistCartService : WishlistCartService , private cartService:CartService, private categoryService:CategoryService) { }
+  constructor(private wishlistCartService : WishlistCartService , private cartService:CartService, private foodDetailsService:FoodDetailsService) { }
 
   ngOnInit(): void {
-    this.wishlistCartService.getProducts().subscribe((wishListData:Category[]) =>{
+    this.wishlistCartService.getProducts().subscribe((wishListData:IFood[]) =>{
       console.log(wishListData);
       this.wishlistArray = wishListData;
-    });    
+ });    
 }
-addToCart(dt:Category){
-       this.cartService.addtoCart(dt);
+addToCart(dt:IFood){
+       this.cartService.addToCart(dt);
   }
-
-  addToWishlistCart(dt:Category){
+addToWishlistCart(dt:IFood){
     this.wishlistCartService.addToWishlistCart(dt);
   }
-
-removeCart(dt:Category){
+removeCart(dt:IFood){
   this.wishlistCartService.removeWishlistCartItem(dt)
 }
-
-updateBool(product:Category){
-  
-  product.addedToWishList=!product.addedToWishList;
-       this.categoryService.updateBoolean(product);
+updateBool(food:IFood){  
+  food.addedToWishList=!food.addedToWishList;
+  this.foodDetailsService.updateBoolean(food);
  }
 }

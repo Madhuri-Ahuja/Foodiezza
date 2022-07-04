@@ -1,4 +1,4 @@
-export interface Category {
+export interface IFood {
     foodId ?:number;
     foodName:String;
     price:number;

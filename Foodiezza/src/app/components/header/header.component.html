@@ -25,15 +25,13 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" (click)="filter('')" routerLink="our-specials" routerLinkActive="link-active" value="OUR-SPECIAL">Explore Taste</a>
           </div>
-        </div>
-      
+        </div>      
        
-        <a routerLink="admin" class="Admin" id="Admin" >Admin</a>
-        
+        <a routerLink="admin" class="Admin" id="Admin" >Admin</a>        
           <div class="header_menu_signin ms-auto" id="signin-box">            
             <a routerLink="log-in" class="header_menu_top_item" id="signin"  >Sign-in</a>
             <a routerLink="registration" class="header_menu_bottom_item" id="register" >Register</a>
-            <a routerLink="wishlist" id="wishList">wishlist</a>
+            <a routerLink="wishlist" id="wishList"><i class="bi bi-heart-fill"></i></a>            
             <a routerLink="cart" class="header_menu_bottom_item" id="cart" ><span><i class="bi bi-bag-heart"></i>
              <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
           </span></a>            

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/services/category.service';
-import { Category } from 'src/app/shared/category';
+import { IFood } from 'src/app/shared/IFood';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Inject } from '@angular/core';
 import { CartService } from 'src/services/cart.service';
 import { WishlistCartService } from 'src/services/wishlist-cart.service';
-@Inject(CategoryService)
+import { FoodDetailsService } from 'src/services/food-details.service';
+@Inject(FoodDetailsService)
 @Component({
   selector: 'app-our-specials',
   templateUrl: './our-specials.component.html',
@@ -14,19 +14,15 @@ import { WishlistCartService } from 'src/services/wishlist-cart.service';
 export class OurSpecialsComponent implements OnInit {
 searchKey:string='';
 filterKey:string='foodName';
-public p:any;
-
-
-
-  specialsResult:Category[]=[];
-  public foodList : any;
-  public filterCategory:boolean=false;
- 
-  constructor(private cat:CategoryService , private cartService:CartService, private wishlistCartService:WishlistCartService ) { }
+public p!:number;
+specialsResult:IFood[]=[];
+public foodList : any;
+public filterCategory:boolean=false; 
+constructor(private foodDetailsService:FoodDetailsService , private cartService:CartService, private wishlistCartService:WishlistCartService ) { }
   ngOnInit(): void {  
-    this.cat.getData().subscribe((data)=>{            
+    this.foodDetailsService.getFood().subscribe((data)=>{            
          for(var i=0;i<data.length;i++){
-          let item:Category={
+          let item:IFood={
             foodId:data[i].foodId,
             foodName:data[i].foodName,
             price:data[i].price,
@@ -41,35 +37,24 @@ public p:any;
           this.filterKey='category';     
     }
   });
-//searchKey
+
 this.cartService.search.subscribe((val:string)=>{
-  //console.log("hi")
-  this.searchKey=val;
+   this.searchKey=val;
   this.filterKey='foodName';
  })
  this.cartService.category.subscribe((val:string)=>{
-  //console.log("hello");
   this.searchKey=val;
   this.filterKey='category';
  })
 }
-  addtocart(item:any){
-    this.cartService.addtoCart(item);
+  addtocart(item:IFood){
+    this.cartService.addToCart(item);
   }
 
-  updateBool(product:Category){
-
-    product.addedToWishList=!product.addedToWishList;   
-    this.wishlistCartService.addToWishlistCart(product);   
-    this.cat.updateBoolean(product);
+  updateBool(food:IFood){
+    food.addedToWishList=!food.addedToWishList;   
+    this.wishlistCartService.addToWishlistCart(food);   
+    this.foodDetailsService.updateBoolean(food);
   }
-   
-   
- 
- 
-//   refresh(): void {
-//     window.location.reload();
-// }
-
 }
 

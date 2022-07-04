@@ -1,5 +1,5 @@
 <div class="container mt-4 mb-4" >
-    <h2 class="text-center">Wishlist <span class="highlight">Taste</span></h2>
+    <h2 class="text-center">Your Wishlist</h2>
     <div class="row"*ngIf="wishlistArray.length !=0 ">    
       <div class="col-lg-3 mt-3" *ngFor="let dt of wishlistArray | paginate: { itemsPerPage: 8, currentPage: p }">
         <div class="ourspecialsBox" *ngIf="dt.addedToWishList">
@@ -11,9 +11,9 @@
         </div>
       </div>
     </div>
-    <div class="pagination-main">
+    <!-- <div class="pagination-main">
       <span>
       <pagination-controls (pageChange)="p = $event"></pagination-controls></span>
-    </div>
+    </div> -->
   </div>
   

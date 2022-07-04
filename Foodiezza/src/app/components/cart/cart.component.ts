@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/shared/category';
+import { IFood } from 'src/app/shared/IFood';
 import { CartService } from 'src/services/cart.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CartService } from 'src/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public foodList : Category[] = [];
+  public foodList : IFood[] = [];
   public grandTotal ! : number ;
   public foodItem:any ;
   public foodQuantity !:number;
@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService:CartService) { }
   ngOnInit(): void {
-    this.cartService.getfood().subscribe(res=>{
+    this.cartService.getFood().subscribe(res=>{
       this.foodList = res;
       this.grandTotal=this.cartService.getTotalPrice();
       console.log("total is"+ this.grandTotal);
@@ -49,9 +49,8 @@ export class CartComponent implements OnInit {
         if(this.foodList[i].foodId === item.foodId ){
           if(foodQuantity !=1)
              this.foodList[i].foodQuantity = foodQuantity-1 
-      }    
-           
-      }  
+      }
+     }  
       this.grandTotal=this.cartService.getTotalPrice();  
     } 
 }

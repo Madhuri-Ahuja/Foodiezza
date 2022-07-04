@@ -16,8 +16,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { CartService } from 'src/services/cart.service';
-import { CategoryService } from 'src/services/category.service';
 import { FoodService } from 'src/services/food.service';
+import {FoodDetailsService} from 'src/services/food-details.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +26,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminComponent } from './components/admin/admin.component';
 import { AddFoodItemComponent } from './components/add-food-item/add-food-item.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     FilterPipe,
     AdminComponent,
     AddFoodItemComponent,
-    WishlistComponent, 
+    WishlistComponent,
+    InvoiceComponent, 
   ],
   imports: [
     BrowserModule,
@@ -54,11 +56,11 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
       timeOut:2000,
       progressAnimation: 'increasing',
       progressBar:true,
-      positionClass:'toast-top-right'
+      positionClass:"toast-top-center"
     })   //NgModule
    
   ],
-  providers: [CartService,CategoryService,FoodService],
+  providers: [CartService,FoodService,FoodDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

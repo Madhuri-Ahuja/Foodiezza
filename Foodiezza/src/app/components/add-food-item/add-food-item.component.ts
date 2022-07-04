@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Category } from 'src/app/shared/category';
-import { CategoryService } from 'src/services/category.service';
-
+import { IFood } from 'src/app/shared/IFood';
+import { FoodDetailsService } from 'src/services/food-details.service';
 
 @Component({
   selector: 'app-add-food-item',
@@ -17,12 +16,12 @@ export class AddFoodItemComponent implements OnInit {
   cookTime:FormControl = new FormControl("");
   imageUrl:FormControl = new FormControl("");
   foodQuantity:FormControl = new FormControl("");
-  constructor(private categoryService : CategoryService) { }
+  constructor(private foodDetailsService:FoodDetailsService) { }
 
   ngOnInit(): void {
   }
   save(){
-    let food:Category = {
+    let food:IFood = {
       foodName:this.foodName.value,
       price:parseInt(this.price.value),
       rating:parseInt(this.rating.value),
@@ -31,6 +30,6 @@ export class AddFoodItemComponent implements OnInit {
       imageUrl:this.imageUrl.value,
       foodQuantity:parseInt(this.foodQuantity.value)
     };
-    this.categoryService.AddFood(food);
+    this.foodDetailsService.addFood(food);
   }
 }
