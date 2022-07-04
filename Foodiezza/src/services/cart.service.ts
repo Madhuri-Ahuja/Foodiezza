@@ -8,10 +8,11 @@ import { Category } from 'src/app/shared/category';
  })
  export class CartService {
 
-   public cartItemList:Category[]=[];
+   public cartItemList:Category[]=[];   
    public foodList=new BehaviorSubject<any>([]);
-   public search=new BehaviorSubject<any>("");
-  
+   public search=new BehaviorSubject<string>("");
+   public category=new BehaviorSubject<any>("");   
+   public filterCategory: any;
 
    constructor(private toastr:ToastrService) { }
 
@@ -62,4 +63,15 @@ import { Category } from 'src/app/shared/category';
     this.cartItemList=[];
     this.foodList.next(this.cartItemList);
    }
+  //  filter(category:string)
+  // {
+  //   this.filterCategory = this.specialsResult
+  //   .filter((a : any) =>{
+  //     if(a.category == category || category==''){
+  //       return a;
+  //     }
+  //   })
+  // }
+
+  
   }

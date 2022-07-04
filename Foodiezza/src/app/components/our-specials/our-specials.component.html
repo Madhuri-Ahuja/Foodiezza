@@ -1,17 +1,23 @@
 <div class="container mt-4 mb-4">
   <h2 class="text-center">Explore The  <span class="highlight">Taste</span></h2>
-  <div class="row">    
-    <div class="col-lg-3 mt-3" *ngFor="let dt of specialsResult | filter:searchKey:'foodName' | paginate: { itemsPerPage: 8, currentPage: p }">
-      <div class="ourspecialsBox">
+  <div class="row"> 
+       <div class="col-lg-3 mt-3" *ngFor="let dt of specialsResult |filter:searchKey:filterKey  | paginate: { itemsPerPage: 8, currentPage: p }">
+        <div class="ourspecialsBox">        
         <img class="specialsCard" src="{{dt.imageUrl}}"/>
         <h6>{{dt.foodName}}</h6>
         <p>{{dt.price|currency:"INR":"symbol" }}</p>
         <button class="btn btn-primary" (click)=addtocart(dt)>Add to Bag</button>  
+        <span *ngIf="!dt.addedToWishList" class="wishlist">
+          <i class="bi bi-heart" (click)="updateBool(dt)" ></i><!-- color heart red--> </span>
+       <span *ngIf="dt.addedToWishList" class="wishlist" >
+        <i class="bi bi-heart-fill"(click)="updateBool(dt)" ></i><!-- remove heart color -->  
+       </span>
       </div>
     </div>
   </div>
   <div class="pagination-main">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <span>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls></span>
   </div>
 </div>
 

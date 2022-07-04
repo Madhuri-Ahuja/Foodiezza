@@ -1,109 +1,77 @@
-<div id="checkout">
-  <div id="checkoutInternal" >   
-    <div class="row">
-     <main class="col-md-8">  
-        <article class="card mb-4">
-         <div class="card-body">
-           <h4 class="card-title mb-4">Review Bag</h4>
-             <div class="row">  
-                <table class="table table-responsive">
-                    <th>Sr.No</th>
-                    <th>Product name</th>
-                    <th>Price</th>  
-                    <th>Quantity</th>
-                    <th>Total</th>  
-                <tbody *ngFor="let fd of foodList ; let i=index">
-                    <tr>
-                        <td>{{i+1}}</td>
-                        <td>{{fd.foodName}}</td>
-                        <td>{{fd.price}}</td>    
-                        <td>{{fd.foodQuantity}}</td>                    
-                        <td>{{fd.foodQuantity*fd.price}}</td>
-                      </tr>                     
-                </tbody>  
-            </table>      
-                    
-                    
-             </div> <!-- row.// -->
-           </div> <!-- card-body.// -->
-        </article> <!-- card.// -->          
-        <article class="card mb-4">
-                <div class="card-body">
-                <h4 class="card-title mb-4">Delivery Address Details</h4>
-                <form ng-app="myApp" ng-controller="validateCtrl" 
-                name="myForm" novalidate> 
-                        <div class="row">             
-                            <div class="form-group col-sm-6">   
-                                <label>Full Name</label>                     
-                                <input type="text" placeholder="Your Full name" name="user" class="form-control" ng-model="Name" required>
-                                <span style="color:red" ng-model="myForm.user.$dirty && myForm.user.$invalid">  
-                                      <span ng-show="myForm.Name.$error.required">Name is required.</span></span>
-                                <br/>
-                            </div><br/>
-                            <div class="form-group col-sm-6">    
-                                <label>Address</label>                    
-                                <input type="text" placeholder="Enter Address" ng-model="Address" class="form-control">
-                                <span style="color:red" ng-show="myForm.Address.$dirty && myForm.Address.$invalid">
-                                    <span ng-show="myForm.Address.$error.required">Enter proper Address</span></span>
-                            </div><br/>   
-                        <div class="form-group col-sm-6"> 
-                            <label>City</label>                       
-                            <input type="text" placeholder="City" ng-model="City" class="form-control">
-                            <span style="color:red" ng-show="myForm.City.$dirty && myForm.Address.$invalid">
-                            <span ng-show="myForm.City.$error.required">City is required</span></span>
-                        </div> 
-                        <div class="form-group col-sm-6">    
-                            <label>State</label>         
-                         <input type="text" placeholder="State"  ng-model="State" class="form-control">  
-                         <span style="color:red" ng-show="myForm.State.$dirty && myForm.State.$invalid">
-                         <span ng-show="myForm.State.$error.required">State is required</span></span>          
-                        </div>  
-                        <div class="form-group col-sm-6">   
-                            <label>Zip Code</label>                         
-                            <input type="text" placeholder="Zip Code" ng-model="zipCode" class="form-control">
-                            <span style="color:red" ng-show="myForm.zipCode.$dirty && myForm.zipCode.$invalid">
-                            <span ng-show="myForm.zipCode.$error.required">Zip Code is required</span></span>
-                        </div>            
-                        <div class="form-group col-sm-6">
-                            <label>Mobile</label>       
-                            <input type="text"  class="form-control" ng-model="Mobile"placeholder="Enter Mobile number">
-                            <span style="color:red" ng-show="myForm.Mobile.$dirty && myForm.Mobile.$invalid">
-                            <span ng-show="myForm.Mobile.$error.required">Enter proper Address</span></span>
-                        </div>
-                        <div class="form-group col-sm-6"> 
-                            <label>Email </label>             
-                            <input type="email" placeholder="example@gmail.com" ng-model="Email" class="form-control">
-                            <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-                                <span ng-show="myForm.email.$error.required">Email is required.</span>
-                                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
-                                </span>
-                        </div>
-                        <label for="notes" class="notes">Special Note: </label>
-                        <textarea name="notes" id="notes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                    </div> <!-- row.// -->	
-                </form>
-                </div> <!-- card-body.// -->
-                </article> <!-- card.// -->               
-                
-                    </main> <!-- col.// -->
-                    <aside class="col-md-4">
-                        <div class="card shadow">
-                        <div class="card-body">
-                            <h4 class="mb-3">Overview</h4> 
-                            <hr>
-                            <dl class="dlist-align">
-                              <dt>Total:</dt>
-                              <dd class="h5">{{ grandTotal |currency:'INR'}}</dd>
-                            </dl>
-                            <hr>
-                            <input type="checkbox" />
-                            <p class="small mb-3 text-muted">By clicking you are agree with terms of condition </p>
-                            <button ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
-                            myForm.email.$dirty && myForm.email.$invalid"(click)="paynow()">Buy Now</button>                             
-                        </div> <!-- card-body.// -->
-                        </div> <!-- card.// -->
-                    </aside> <!-- col.// -->
-                </div> <!-- row.// -->               
+<div class="row">
+    <div class="col-sm-8">
+        <div class="billingDetails">
+        <form>            
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="bi bi-person-fill"></i> Full Name</label>
+            <input [formControl]="Name" type="text" id="fname" name="firstname" placeholder="Enter Name">
+            <label for="email"><i class="bi bi-envelope-fill"></i> Email</label>
+            <input [formControl]="Email"  type="text" id="email" name="email" placeholder="Enter Valid Email ">
+             <label for="adr"><i class="bi bi-house-fill"></i> Address</label>
+             <input [formControl]="Address" type="text" id="adr" name="address" placeholder="Enter Address">
+             <label for="city"><i class="fa fa-institution"></i> City</label>
+             <input [formControl]="City" type="text" id="city" name="city" placeholder="Enter City">
+             <div class="row">
+              <div class="col-50">
+              <label for="state">State</label>
+              <input [formControl]="State" type="text" id="state" name="state" placeholder="Enter State">
+              </div>
+              <div class="col-50">
+              <label for="zip">Zip</label>
+             <input [formControl]="zipCode" type="text" id="zipCode" name="zipCode" placeholder="Postal Code">
+             </div>
+             </div>  
+            <label for="city"><i class="bi bi-telephone-fill"></i> Mobile</label>
+            <input [formControl]="phoneNumber" type="text" id="phoneNumber" name="phoneNumber" placeholder="0000000000">           
+           <input  type="submit" value="Save Address" class="btn" (click)="saveBillingDetails()">
+          </form>
+        </div>
     </div>
+    <div class="col-sm-4">
+        <div class="card-body">
+            <h4 class="card-title mb-4">Review Bag</h4>
+              <div class="row">  
+                 <table class="table table-responsive">
+                     <th>Sr.No</th>
+                     <th>Product name</th>
+                     <th>Price</th>  
+                     <th>Quantity</th>
+                     <th>Total</th>  
+                 <tbody *ngFor="let fd of foodList ; let i=index">
+                     <tr>
+                         <td>{{i+1}}</td>
+                         <td>{{fd.foodName}}</td>
+                         <td>{{fd.price}}</td>    
+                         <td>{{fd.foodQuantity}}</td>                    
+                         <td>{{fd.foodQuantity*fd.price}}</td>
+                       </tr>                     
+                 </tbody>  
+             </table>                  
+            </div> <!-- row.// -->
+            </div> <!-- card-body.// -->
+        
+
+<div class="card shadow">
+<div class="card-body">
+<h4 class="mb-3">Overview</h4> 
+<hr>
+<dl class="dlist-align">
+<dt>Total:</dt>
+<dd class="h5">{{ grandTotal |currency:'INR'}}</dd>
+</dl>
+<hr>
+<input type="checkbox" />
+<p class="small mb-3 text-muted">By clicking you are agree with terms of condition </p>
+ <button class="btnBuyNow" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+myForm.email.$dirty && myForm.email.$invalid"(click)="paynow()">Buy Now</button>                    
+</div> <!-- card-body.// -->
+</div> <!-- card.// -->
 </div>
+</div>
+
+
+
+
+                            
+
                 

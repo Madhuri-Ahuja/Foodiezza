@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/services/category.service';
 import { Category } from 'src/app/shared/category';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Inject } from '@angular/core';
 import { CartService } from 'src/services/cart.service';
-
-
+import { WishlistCartService } from 'src/services/wishlist-cart.service';
 @Inject(CategoryService)
 @Component({
   selector: 'app-our-specials',
@@ -14,14 +13,18 @@ import { CartService } from 'src/services/cart.service';
 })
 export class OurSpecialsComponent implements OnInit {
 searchKey:string='';
+filterKey:string='foodName';
 public p:any;
+
+
+
   specialsResult:Category[]=[];
   public foodList : any;
-  constructor(private cat:CategoryService , private cartService:CartService) { }
-  ngOnInit(): void {    
+  public filterCategory:boolean=false;
  
+  constructor(private cat:CategoryService , private cartService:CartService, private wishlistCartService:WishlistCartService ) { }
+  ngOnInit(): void {  
     this.cat.getData().subscribe((data)=>{            
-      console.log("in function", data);      
          for(var i=0;i<data.length;i++){
           let item:Category={
             foodId:data[i].foodId,
@@ -33,19 +36,40 @@ public p:any;
             imageUrl:data[i].imageUrl,
             foodQuantity:data[i].foodQuantity
         };
-          this.specialsResult.push(item);
-          console.log("final array",this.specialsResult);  
-      //this.specialsResult=data;
+          this.specialsResult.push(item);    
+          this.searchKey='';
+          this.filterKey='category';     
     }
   });
 //searchKey
 this.cartService.search.subscribe((val:string)=>{
+  //console.log("hi")
   this.searchKey=val;
-})
-
- }
+  this.filterKey='foodName';
+ })
+ this.cartService.category.subscribe((val:string)=>{
+  //console.log("hello");
+  this.searchKey=val;
+  this.filterKey='category';
+ })
+}
   addtocart(item:any){
     this.cartService.addtoCart(item);
   }
+
+  updateBool(product:Category){
+
+    product.addedToWishList=!product.addedToWishList;   
+    this.wishlistCartService.addToWishlistCart(product);   
+    this.cat.updateBoolean(product);
+  }
+   
+   
+ 
+ 
+//   refresh(): void {
+//     window.location.reload();
+// }
+
 }
 

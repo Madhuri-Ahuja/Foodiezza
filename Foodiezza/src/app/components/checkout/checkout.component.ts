@@ -1,8 +1,12 @@
 import { APP_BOOTSTRAP_LISTENER, HostListener } from '@angular/core';
-import { Component, EventEmitter, Input , OnInit , Output } from '@angular/core';
+import { Component, EventEmitter, Input , OnInit , Output , Inject} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Category } from 'src/app/shared/category';
 import { CartService } from 'src/services/cart.service';
+import { FormControl } from '@angular/forms';
+import { IOrder } from 'src/app/shared/iorder';
+import { IBillingDetails } from 'src/app/shared/ibilling-details';
+import {CheckoutService } from 'src/services/checkout.service';
 
 declare var Razorpay:any;
 @Component({
@@ -12,9 +16,17 @@ declare var Razorpay:any;
 })
 export class CheckoutComponent implements OnInit {
   public foodList : Category[] = [];
-  public grandTotal ! : number ;
-  constructor(private cartService:CartService) { 
-    
+  public grandTotal ! : number ;  
+  Name:FormControl = new FormControl("");
+  Email:FormControl=new FormControl("");
+  Address:FormControl = new FormControl("");
+  City:FormControl = new FormControl("");
+  State:FormControl = new FormControl("");
+  zipCode:FormControl = new FormControl("");
+  phoneNumber:FormControl = new FormControl("");
+ 
+  
+  constructor(private cartService:CartService , private checkoutService : CheckoutService) {     
   }
 
   ngOnInit(): void {
@@ -24,13 +36,28 @@ export class CheckoutComponent implements OnInit {
      })
   }
   
+  saveBillingDetails(){
+    let iBillingDetails: IBillingDetails={
+        Name:this.Name.value,
+        Address:this.Address.value,
+        Email:this.Email.value,
+        City:this.City.value,
+        State:this.State.value, 
+        zipCode:this.zipCode.value,
+        phoneNumber:this.phoneNumber.value,
+        subTotal:this.grandTotal=this.cartService.getTotalPrice()       
+    };
+    console.log(iBillingDetails);
+    console.log(this.grandTotal); 
+    this.checkoutService.AddBillingDetails(iBillingDetails);
+  }  
 message:any;
 paymentId = "";
 error = "";
 title1 = 'razorpay-intergration';
 options = {
   "key": "rzp_test_KMuAYKn5Hl8vDL",
-  "amount": 300,
+  "amount":this.grandTotal,
   "name": "Madhuri Ahuja",
   "description": "Payment Details",
   "image": "/assets/images/fav.png",
@@ -60,6 +87,7 @@ options = {
 paynow() {
   this.paymentId = '';
   this.error = '';
+  this.options.amount=this.grandTotal*100;
   this.options.prefill.name = "Madhu";
   this.options.prefill.email = "ahujamadhu01@gmail.com";
   this.options.prefill.contact = "7038080532";

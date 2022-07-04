@@ -7,6 +7,6 @@ export interface Category {
     cookTime:String;
     imageUrl:String;
     foodQuantity: number;
-    
+    addedToWishList?:boolean;
 }
     

@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminComponent } from './components/admin/admin.component';
 import { AddFoodItemComponent } from './components/add-food-item/add-food-item.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { AddFoodItemComponent } from './components/add-food-item/add-food-item.c
     CheckoutComponent,
     FilterPipe,
     AdminComponent,
-    AddFoodItemComponent, 
+    AddFoodItemComponent,
+    WishlistComponent, 
   ],
   imports: [
     BrowserModule,

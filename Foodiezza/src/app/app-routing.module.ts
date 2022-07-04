@@ -14,6 +14,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AddFoodItemComponent } from './components/add-food-item/add-food-item.component';
+import { WishlistCartService } from 'src/services/wishlist-cart.service';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,8 @@ const routes: Routes = [
   {path:"registration",component:RegistrationComponent},
   {path:"checkout",component:CheckoutComponent},
   {path:"admin",component:AdminComponent},
-  {path:"addfooditem",component:AddFoodItemComponent}
+  {path:"addfooditem",component:AddFoodItemComponent},
+  {path:"wishlist",component:WishlistComponent}
   
 ];
 
