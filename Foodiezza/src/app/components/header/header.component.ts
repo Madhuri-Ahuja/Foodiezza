@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
   filter(event:any){   
    this._router.navigate(['our-specials'])
    this.cartService.category.next(event);      
-  }
-  
-  
+  } 
 }
     

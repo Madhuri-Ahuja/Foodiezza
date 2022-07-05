@@ -51,14 +51,14 @@
             </div> <!-- card-body.// -->      
 
 <div class="card shadow">
-<div class="card-body">
-<h4 class="mb-3">Overview</h4> 
-<hr>
-<dl class="dlist-align">
-<dt>Total:</dt>
-<dd class="h5">{{ grandTotal |currency:'INR'}}</dd>
-</dl>
-<hr>
+    <div class="card-body">
+    <h4 class="mb-3">Overview</h4> 
+    <hr>
+    <dl class="dlist-align">
+        <dt>Total:</dt>
+        <dd class="h5">{{ grandTotal |currency:'INR'}}</dd>
+    </dl>
+    <hr>
 <input type="checkbox" />
 <p class="small mb-3 text-muted">By clicking you are agree with terms of condition </p>
  <button class="btnBuyNow" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  

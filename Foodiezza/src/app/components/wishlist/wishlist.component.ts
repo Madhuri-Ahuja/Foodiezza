@@ -9,8 +9,7 @@ import { WishlistCartService } from 'src/services/wishlist-cart.service';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  public p:any;
-  wishlistArray:IFood[]=[]; 
+   wishlistArray:IFood[]=[]; 
 
   constructor(private wishlistCartService : WishlistCartService , private cartService:CartService, private foodDetailsService:FoodDetailsService) { }
 

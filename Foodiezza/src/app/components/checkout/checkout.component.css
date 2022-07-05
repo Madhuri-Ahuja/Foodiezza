@@ -117,10 +117,7 @@ color: grey;
 }
 .col-25 {
   margin-bottom: 20px;
-  /* width: 100%;
-                    display: flex;
-                    column-gap: 15px; */
-}
+ }
 }
 
 .card-details {

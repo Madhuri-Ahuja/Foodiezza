@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { IFood } from 'src/app/shared/IFood';
 import { FoodDetailsService } from 'src/services/food-details.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-food-item',
@@ -16,7 +17,7 @@ export class AddFoodItemComponent implements OnInit {
   cookTime:FormControl = new FormControl("");
   imageUrl:FormControl = new FormControl("");
   foodQuantity:FormControl = new FormControl("");
-  constructor(private foodDetailsService:FoodDetailsService) { }
+  constructor(private foodDetailsService:FoodDetailsService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -31,5 +32,8 @@ export class AddFoodItemComponent implements OnInit {
       foodQuantity:parseInt(this.foodQuantity.value)
     };
     this.foodDetailsService.addFood(food);
+    this.toastr.success(`${food.foodName}`,'Food Item added Successfully!');
+
+
   }
 }

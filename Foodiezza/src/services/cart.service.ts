@@ -7,7 +7,6 @@ import { IFood } from 'src/app/shared/IFood';
    providedIn: 'root'
  })
  export class CartService {
-
    public cartItemList:IFood[]=[];   
    public foodList=new BehaviorSubject<any>([]);
    public search=new BehaviorSubject<string>("");
@@ -15,12 +14,10 @@ import { IFood } from 'src/app/shared/IFood';
    public filterCategory: any;
 
    constructor(private toastr:ToastrService) { }
-
    getFood(){
     return this.foodList.asObservable();
    }
-
-  setFood(product:any){
+     setFood(product:any){
      this.cartItemList.push(...product);
      this.foodList.next(product);
    }

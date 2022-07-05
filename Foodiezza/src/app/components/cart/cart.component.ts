@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   public foodItem:any ;
   public foodQuantity !:number;
   public foodTotal !:number;    
-  public p:any;
+  public p!:number;
 
   constructor(private cartService:CartService) { }
   ngOnInit(): void {
@@ -24,16 +24,13 @@ export class CartComponent implements OnInit {
       console.log("total is"+ this.grandTotal);
     })
   }
-  removeItem(item:any){    
+  removeItem(item:IFood){    
     this.cartService.removeCartItem(item);
   }
   emptycart(){
     this.cartService.removeAllCart();
   }
-  // addtocart(){
-    
-  // }
-  increaseQuantity(item:any,foodQuantity:number){
+   increaseQuantity(item:IFood,foodQuantity:number){
     for(let i=0;i<this.foodList.length;i++)
     {
       if(this.foodList[i].foodId === item.foodId){
@@ -43,7 +40,7 @@ export class CartComponent implements OnInit {
      }  
      this.grandTotal=this.cartService.getTotalPrice();    
     }
-    decreaseQuantity(item:any,foodQuantity:number){
+    decreaseQuantity(item:IFood,foodQuantity:number){
       for(let i=0;i<this.foodList.length;i++)
       {
         if(this.foodList[i].foodId === item.foodId ){

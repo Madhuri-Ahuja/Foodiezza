@@ -12,17 +12,14 @@ import { ToastrService } from 'ngx-toastr';
 export class AdminComponent implements OnInit {
   specialsResult:IFood[]=[];
   public totalFood:number=0;
-  public p:any;
-  constructor(private foodDetailsService : FoodDetailsService,private cartService:CartService,private toastr:ToastrService) { }
+  public p!:number;
+  constructor(private foodDetailsService:FoodDetailsService,private cartService:CartService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.foodDetailsService.getFood().subscribe((data:IFood[]) =>{
-      this.cartService.getFood()
-      .subscribe(res=>{
-      this.totalFood = res.length;
-    })
-          console.log(data);
-          this.specialsResult = data;
+    this.cartService.getFood()
+    .subscribe();
+    this.specialsResult = data;
   })
   this.loadData();
   }
@@ -32,17 +29,8 @@ export class AdminComponent implements OnInit {
     });
   }
   editProduct(fd : IFood){
-  // this.dialog.open(DialogComponent,{
-  //   width: '30%',
-  //   data: dt
-  // }).afterClosed().subscribe(val => {
-  //   if(val === 'update')
-  //   {
-  //     this.productService.getData();
-  //   }
-  // })
+ 
 }
-
 deleteFood(food: IFood)
 {
   let id : number = 0;
@@ -53,8 +41,7 @@ deleteFood(food: IFood)
   }
   this.foodDetailsService.deleteFood(id);
   this.toastr.info(`${food.foodName}`,' Deleted ');
-  this.loadData;  
-
+  this.loadData; 
 }
 }
 

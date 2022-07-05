@@ -16,7 +16,6 @@ searchKey:string='';
 filterKey:string='foodName';
 public p!:number;
 specialsResult:IFood[]=[];
-public foodList : any;
 public filterCategory:boolean=false; 
 constructor(private foodDetailsService:FoodDetailsService , private cartService:CartService, private wishlistCartService:WishlistCartService ) { }
   ngOnInit(): void {  
