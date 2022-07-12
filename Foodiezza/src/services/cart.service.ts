@@ -12,7 +12,6 @@ import { IFood } from 'src/app/shared/IFood';
    public search=new BehaviorSubject<string>("");
    public category=new BehaviorSubject<any>("");   
    public filterCategory: any;
-
    constructor(private toastr:ToastrService) { }
    getFood(){
     return this.foodList.asObservable();

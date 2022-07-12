@@ -105,5 +105,4 @@ onPaymentSuccess(event: any): void {
 submit(post:any){
   console.log("submitted form successfully!")
 }
-
 }

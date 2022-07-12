@@ -31,6 +31,7 @@ export class AdminComponent implements OnInit {
   editProduct(fd : IFood){
  
 }
+
 deleteFood(food: IFood)
 {
   let id : number = 0;
